@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number game</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h2>
+        <p id="numberDisplay"></p>
+    </h2>
+
+    <button onclick="numberTimerFunction()">Show Numbers</button> 
+    
+    <input type="text" id="answer">
+
+    <button onclick="document.getElementById('answer').value = ''" id="clearButton">Clear input field</button>
+    <button type="button" onclick="inputCheck()" id="answerButton">Submit</button>
+        <p id="rightWrongDisplay"></p>
+
+
+
+    <script src="./app.js"></script>
+</body>
+</html>
