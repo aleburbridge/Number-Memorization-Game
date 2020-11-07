@@ -1,6 +1,12 @@
 numberArray = []
 answerArray = []
 var numberTimer;
+var numberlistlength = 3;
+
+
+function increaseLength() {
+    numberlistlength ++
+}
 
 function numberTimerFunction() {
     numberTimer = setInterval(randomNumber, 1000);
@@ -11,30 +17,54 @@ function randomNumber() {
     var currentNumber = Math.floor((Math.random() * 9))
     document.getElementById("numberDisplay").innerHTML = currentNumber;
     numberArray.push(currentNumber)
-    returnLoop();
+    returnLoop(); 
     console.log(numberArray)
 }
 
+
 function returnLoop () {
-    if (numberArray.length < 3) {
+    var text = document.getElementById("rightWrongDisplay");
+    text.innerHTML = " "
+    if (numberArray.length < numberlistlength) { // length determiner
         return;
     } else {
         clearInterval(numberTimer);
     }
 }
 
-function bigIfTrue() {
-    var text = document.getElementById("rightWrongDisplay").innerHTML
-    if (answerArray.length == 3) {
-        
-
-        if (answerArray == numberArray) {
-            console.log("Nice");
+function arrayCheck(array1, array2) {
+    for (i=0; i < array1.length; i++) {
+        if (array1[i] === array2[i]) {
+            continue
         } else {
-            console.log("nah");
+            return false;
         }
-        
-    }
+    } 
+    return true;
+} 
+
+// changes html element to 'correct' or 'incorrect'
+function bigIfTrue() {
+    var text = document.getElementById("rightWrongDisplay");
+    if (answerArray.length === numberlistlength) {
+        if (arrayCheck(numberArray, answerArray)) {
+            text.innerHTML = "Correct!"
+            lengthCount();
+            increaseLength();
+            console.log(numberlistlength);
+            numberArray = [];
+            answerArray = [];
+        } else {
+            text.innerHTML = "Incorrect. The order was: " + JSON.stringify(numberArray)
+        }
+  
+    } 
+}
+
+// displays length of number string
+function lengthCount() {
+    var text = document.getElementById("lengthCount");
+    text.innerHTML = "Length: " + JSON.stringify(numberlistlength);
 }
 
 // input check!

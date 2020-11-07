@@ -7,19 +7,23 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div class="container">
+    <div class="center">
     <h2>
         <p id="numberDisplay"></p>
     </h2>
 
-    <button onclick="numberTimerFunction()">Show Numbers</button> 
+    <button onclick="numberTimerFunction()">Show Numbers</button><br><br>
     
     <input type="text" id="answer">
 
     <button onclick="document.getElementById('answer').value = ''" id="clearButton">Clear input field</button>
     <button type="button" onclick="inputCheck()" id="answerButton">Submit</button>
+        <p id="lengthCount"></p>
         <p id="rightWrongDisplay"></p>
-
-
+    <br>
+    </div>
+    </div>
 
     <script src="./app.js"></script>
 </body>
