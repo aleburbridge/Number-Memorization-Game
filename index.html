@@ -5,25 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Number game</title>
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600&display=swap" rel="stylesheet"> 
 </head>
 <body>
     <div class="container">
-    <div class="center">
-    <h2>
-        <p id="numberDisplay"></p>
-    </h2>
+        <h2>
+            <p id="numberDisplay">&nbsp;</p>
+        </h2>
 
-    <button onclick="numberTimerFunction()">Show Numbers</button><br><br>
-    
-    <p id="underscores"></p>
-    <input type="text" id="answer" oninput="clearFunction()">
-
-
-    <button type="button" onclick="inputCheck()" id="answerButton">Submit</button>
-        <p id="lengthCount"></p>
-        <p id="rightWrongDisplay"></p>
-    <br>
-    </div>
+        <div class="contents">
+            <div id="input"><input type="text" autocomplete="off" size="5" id="answer"></div><br><br>
+            <div id="showNumbers"><button onclick="numberTimerFunction()">Show Numbers</button></div>
+            <button onclick="document.getElementById('answer').value = ''" id="clearButton">Clear input field</button>
+            <button type="button" onclick="inputCheck()" id="answerButton">Submit</button>
+            <div id="length">&nbsp;<p id="lengthCount"></p></div>
+            <div id="correct">&nbsp;<p id="rightWrongDisplay"></p></div>
+        </div>
     </div>
 
     <script src="./app.js"></script>
