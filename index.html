@@ -15,9 +15,10 @@
 
     <button onclick="numberTimerFunction()">Show Numbers</button><br><br>
     
-    <input type="text" id="answer">
+    <p id="underscores"></p>
+    <input type="text" id="answer" oninput="clearFunction()">
 
-    <button onclick="document.getElementById('answer').value = ''" id="clearButton">Clear input field</button>
+
     <button type="button" onclick="inputCheck()" id="answerButton">Submit</button>
         <p id="lengthCount"></p>
         <p id="rightWrongDisplay"></p>

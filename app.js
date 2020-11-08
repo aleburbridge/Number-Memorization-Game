@@ -1,6 +1,7 @@
 numberArray = []
 answerArray = []
 var numberTimer;
+var blankSpace;
 var numberlistlength = 3;
 
 
@@ -10,12 +11,16 @@ function increaseLength() {
 
 function numberTimerFunction() {
     numberTimer = setInterval(randomNumber, 1000);
+    lengthCount();
 }
+
+
 
 function randomNumber() {
     // generates random number, displays it, then pushes it to array
-    var currentNumber = Math.floor((Math.random() * 9))
+    var currentNumber = Math.floor((Math.random() * 9));
     document.getElementById("numberDisplay").innerHTML = currentNumber;
+    setTimeout(function(){ document.getElementById("numberDisplay").innerHTML = " "; }, 500);
     numberArray.push(currentNumber)
     returnLoop(); 
     console.log(numberArray)
@@ -29,6 +34,7 @@ function returnLoop () {
         return;
     } else {
         clearInterval(numberTimer);
+
     }
 }
 
@@ -49,9 +55,7 @@ function bigIfTrue() {
     if (answerArray.length === numberlistlength) {
         if (arrayCheck(numberArray, answerArray)) {
             text.innerHTML = "Correct!"
-            lengthCount();
             increaseLength();
-            console.log(numberlistlength);
             numberArray = [];
             answerArray = [];
         } else {
@@ -76,16 +80,8 @@ function inputCheck() {
     console.log(answerArray);
 }
 
-// auto submit & clear input 
-var text = document.getElementById("answer");
-var answerButton = document.getElementById("answerButton");
-var clearButton = document.getElementById("clearButton");
-text.onkeyup = function() {
-    if (text.value.length == 1) {
-        answerButton.click();
-        clearButton.click();
-        bigIfTrue();
-  }
+function clearFunction() {
+    var text = document.getElementById("answer");
+    setTimeout(function(){ document.getElementById("answer").innerHTML = " "; }, 500);
+    bigIfTrue();
 }
-
-
