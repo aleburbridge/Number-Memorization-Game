@@ -1,8 +1,9 @@
-numberArray = []
-answerArray = []
 var numberTimer;
 var blankSpace;
 var numberlistlength = 3;
+let answerBox = document.getElementById("answer");
+numberArray = []
+answerArray = []
 
 
 
